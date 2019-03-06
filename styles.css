@@ -1,0 +1,37 @@
+.show {
+    z-index:1000;
+    position: absolute;
+    padding: 2px;
+    display: block;
+    margin: 0;
+    list-style-type: none;
+    list-style: none;
+}
+
+.hide {
+    display: none;
+    position: absolute;
+}
+.bold{
+  font-weight: bold;
+}
+.text-context{
+  /* text-align: left; */
+  position: absolute;
+  margin: 20px;
+}
+.font-color-menu{
+  position: absolute;
+  top: 20px;
+  left: 335px;
+}
+.color-menu{
+  position: absolute;
+  top: 20px;
+  left: 270px;
+}
+.cell-color-menu{
+  position: absolute;
+  top: 20px;
+  left: 399px;
+}
