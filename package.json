@@ -1,0 +1,26 @@
+{
+  "name": "schedule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syrsqe/Otp-Practice.git"
+  },
+  "author": "James Thornton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syrsqe/Otp-Practice/issues"
+  },
+  "homepage": "https://github.com/syrsqe/Otp-Practice#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.19"
+  }
+}

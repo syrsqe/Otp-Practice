@@ -1,0 +1,65 @@
+.show {
+    z-index:1000;
+    position: absolute;
+    padding: 2px;
+    display: block;
+    margin: 0;
+    list-style-type: none;
+    list-style: none;
+}
+
+.hide {
+    display: none;
+    position: absolute;
+}
+.bold{
+  font-weight: bold;
+}
+.text-context{
+  /* text-align: left; */
+  position: absolute;
+  margin: 20px;
+}
+.font-color-menu{
+  position: absolute;
+  top: 20px;
+  left: 335px;
+}
+.color-menu{
+  position: absolute;
+  top: 20px;
+  left: 270px;
+}
+.cell-color-menu{
+  position: absolute;
+  top: 20px;
+  left: 399px;
+}
+.schedule-title{
+  margin: auto;
+  text-align: center;
+  max-width: 250px;
+  border-style: none none solid none;
+}
+.col_header{
+  text-align: center;
+}
+.carousel-control-next, .carousel-control-prev{
+  max-width: 20px;
+  max-height: 30px;
+  margin-top: 250px;
+  background-color: #fff;
+  /* background-image: url("css/arrow-right-solid.svg"); */
+
+
+}
+.carousel-control-next-icon {
+  background-image: url("../images/arrow-circle-right-solid.svg");
+
+}
+.carousel-control-prev-icon{
+  background-image: url("../images/arrow-circle-left-solid.svg");
+}
+.text-modifier{
+  z-index: 2;
+}
