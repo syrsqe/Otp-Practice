@@ -63,3 +63,6 @@
 .text-modifier{
   z-index: 2;
 }
+.hide{
+  display: none;
+}

@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/styles.css">
+  <!-- <script type="text/javascript src ="src="/getSchedule.js"> -->
+
+  </script>
 </head>
 
 <body>
@@ -78,137 +81,138 @@
           <div class="container-fluid">
 
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <form class="table-submit-form" action="/" method="post">
-                  <header class=" p-4 text-center">
-                    <input class="form-control schedule-title" type="text" name="schedule-title" placeholder="Title" value="<%=thisMonthStr%> <%=thisYearStr%>: <%=datesThisWeek[0]%>-<%=datesThisWeek[6]%> ">
-                  </header>
-
-                  <table name="schedule" class="table table-condensed table-sm table-bordered table-hover schedule-table">
-
-                    <tbody>
+              <%if(existingTables.length === 0){ %>
 
 
-                      <tr class="row_0">
-                        <td name="A" class="col_header col_0" contenteditable="true" scope="row"><b>ID</b></td>
-                        <td name="B" class="col_header col_1"><b>Name</b></td>
-                        <td name="C" class="col_header col_2"><b>Phone</b></td>
-                        <td name="D " class="col_header col_3"><b>Position</b></td>
-                        <td name="E" class="col_header col_4"><b>Monday<br>
-                            <%=datesThisWeek[0]%></b></td>
-                        <td name="F" class="col_header col_5"><b>Tuesday<br>
-                            <%=datesThisWeek[1]%></b></td>
-                        <td name="G" class="col_header col_6"><b>Wednesday<br>
-                            <%=datesThisWeek[2]%></b></td>
-                        <td name="H" class="col_header col_7 "><b>Thursday<br>
-                            <%=datesThisWeek[3]%></b></td>
-                        <td name="I" class="col_header col_8"><b>Friday<br>
-                            <%=datesThisWeek[4]%></b></td>
-                        <td name="J" class="col_header col_9"><b>Saturday<br>
-                            <%=datesThisWeek[5]%></b></td>
-                        <td name="K" class="col_header col_10"><b>Sunday<br>
-                            <%=datesThisWeek[6]%></b></td>
+                <div class="carousel-item active">
+                  <form class="table-submit-form" action="/schedule" method="post">
+                    <header class=" p-4 text-center">
+                      <input class="form-control schedule-title" type="text" name="schedule_title" placeholder="Title" value="<%=thisMonthStr%> <%=thisYearStr%>: <%=datesThisWeek[0]%>-<%=datesThisWeek[6]%> ">
+                    </header>
 
-                      </tr>
-                      <tr class="row_1">
-                        <td name="A" class="col_0" contenteditable="true" scope="row"></td>
-                        <td name="B" class="col_1"></td>
-                        <td name="C" class="col_2"></td>
-                        <td name="D " class="col_3"></td>
-                        <td name="E" class="col_4"></td>
-                        <td name="F" class="col_5"></td>
-                        <td name="G" class="col_6"></td>
-                        <td name="H" class="col_7"></td>
-                        <td name="I" class="col_8"></td>
-                        <td name="J" class="col_9"></td>
-                        <td name="K" class="col_10"></td>
+                    <table name="schedule" class="table table-condensed table-sm table-bordered table-hover schedule-table">
 
-                      </tr>
-                      <tr class="row_2">
-                        <td name="A" class="col_0" contenteditable="true" scope="row"></td>
-                        <td name="B" class="col_1"></td>
-                        <td name="C" class="col_2"></td>
-                        <td name="D " class="col_3"></td>
-                        <td name="E" class="col_4"></td>
-                        <td name="F" class="col_5"></td>
-                        <td name="G" class="col_6"></td>
-                        <td name="H" class="col_7"></td>
-                        <td name="I" class="col_8"></td>
-                        <td name="J" class="col_9"></td>
-                        <td name="K" class="col_10"></td>
+                      <tbody>
 
-                      </tr>
-                      <tr class="row_3">
-                        <td name="A" class="col_0" contenteditable="true" scope="row"></td>
-                        <td name="B" class="col_1"></td>
-                        <td name="C" class="col_2"></td>
-                        <td name="D " class="col_3"></td>
-                        <td name="E" class="col_4"></td>
-                        <td name="F" class="col_5"></td>
-                        <td name="G" class="col_6"></td>
-                        <td name="H" class="col_7"></td>
-                        <td name="I" class="col_8"></td>
-                        <td name="J" class="col_9"></td>
-                        <td name="K" class="col_10"></td>
 
-                      </tr>
-                      <tr class="row_4">
-                        <td name="A" class="col_0" contenteditable="true" scope="row"></td>
-                        <td name="B" class="col_1"></td>
-                        <td name="C" class="col_2"></td>
-                        <td name="D " class="col_3"></td>
-                        <td name="E" class="col_4"></td>
-                        <td name="F" class="col_5"></td>
-                        <td name="G" class="col_6"></td>
-                        <td name="H" class="col_7"></td>
-                        <td name="I" class="col_8"></td>
-                        <td name="J" class="col_9"></td>
-                        <td name="K" class="col_10"></td>
+                        <tr class="row_0">
+                          <td name="A" class="col_header col_0" contenteditable="true" scope="row"><b>ID</b></td>
+                          <td name="B" class="col_header col_1"><b>Name</b></td>
+                          <td name="C" class="col_header col_2"><b>Phone</b></td>
+                          <td name="D " class="col_header col_3"><b>Position</b></td>
+                          <td name="E" class="col_header col_4"><b>Monday<br>
+                              <%=datesThisWeek[0]%></b></td>
+                          <td name="F" class="col_header col_5"><b>Tuesday<br>
+                              <%=datesThisWeek[1]%></b></td>
+                          <td name="G" class="col_header col_6"><b>Wednesday<br>
+                              <%=datesThisWeek[2]%></b></td>
+                          <td name="H" class="col_header col_7 "><b>Thursday<br>
+                              <%=datesThisWeek[3]%></b></td>
+                          <td name="I" class="col_header col_8"><b>Friday<br>
+                              <%=datesThisWeek[4]%></b></td>
+                          <td name="J" class="col_header col_9"><b>Saturday<br>
+                              <%=datesThisWeek[5]%></b></td>
+                          <td name="K" class="col_header col_10"><b>Sunday<br>
+                              <%=datesThisWeek[6]%></b></td>
 
-                      </tr>
-                      <tr class="row_5">
-                        <td name="A" class="col_0" contenteditable="true" scope="row"></td>
-                        <td name="B" class="col_1"></td>
-                        <td name="C" class="col_2"></td>
-                        <td name="D " class="col_3"></td>
-                        <td name="E" class="col_4"></td>
-                        <td name="F" class="col_5"></td>
-                        <td name="G" class="col_6"></td>
-                        <td name="H" class="col_7"></td>
-                        <td name="I" class="col_8"></td>
-                        <td name="J" class="col_9"></td>
-                        <td name="K" class="col_10"></td>
+                        </tr>
+                        <tr class="row_1">
+                          <td name="A" class="col_0" contenteditable="true" scope="row"></td>
+                          <td name="B" class="col_1"></td>
+                          <td name="C" class="col_2"></td>
+                          <td name="D " class="col_3"></td>
+                          <td name="E" class="col_4"></td>
+                          <td name="F" class="col_5"></td>
+                          <td name="G" class="col_6"></td>
+                          <td name="H" class="col_7"></td>
+                          <td name="I" class="col_8"></td>
+                          <td name="J" class="col_9"></td>
+                          <td name="K" class="col_10"></td>
 
-                      </tr>
-                      <tr class="row_6" value="hello">
-                        <td name="A" class="col_0" contenteditable="true" scope="row"></td>
-                        <td name="B" class="col_1"></td>
-                        <td name="C" class="col_2"></td>
-                        <td name="D " class="col_3"></td>
-                        <td name="E" class="col_4"></td>
-                        <td name="F" class="col_5"></td>
-                        <td name="G" class="col_6"></td>
-                        <td name="H" class="col_7"></td>
-                        <td name="I" class="col_8"></td>
-                        <td name="J" class="col_9"></td>
-                        <td name="K" class="col_10"></td>
+                        </tr>
+                        <tr class="row_2">
+                          <td name="A" class="col_0" contenteditable="true" scope="row"></td>
+                          <td name="B" class="col_1"></td>
+                          <td name="C" class="col_2"></td>
+                          <td name="D " class="col_3"></td>
+                          <td name="E" class="col_4"></td>
+                          <td name="F" class="col_5"></td>
+                          <td name="G" class="col_6"></td>
+                          <td name="H" class="col_7"></td>
+                          <td name="I" class="col_8"></td>
+                          <td name="J" class="col_9"></td>
+                          <td name="K" class="col_10"></td>
 
-                      </tr>
-                      <!-- <input type="hidden" name="r0" value="">
-                <input type="hidden" name="r1" value="">
-                <input type="hidden" name="r2" value="">
-                <input type="hidden" name="r3" value= "">
-                <input type="hidden" name="r4" value="">
-                <input type="hidden" name="r5" value="">
-                <input type="hidden" name="r6"> -->
-                    </tbody>
-                  </table>
-                  <button class="btn btn-success publish-schedule-button" type="button" name="button" onclick="getTableContent()">Publish</button>
-                  <button class="btn btn-primary" type="button" name="button" onclick="addSchedule()" data-target="#tableControls">New Schedule</button>
-                  <button class="btn btn-danger" type="button" name="deletebutton" data-target="#tableControls" data-slide="prev" onclick="" >Delete Schedule</button>
-                  <input type="hidden" name="ArrayDate" class="inputDate"value="">
-                </form>
-              </div>
+                        </tr>
+                        <tr class="row_3">
+                          <td name="A" class="col_0" contenteditable="true" scope="row"></td>
+                          <td name="B" class="col_1"></td>
+                          <td name="C" class="col_2"></td>
+                          <td name="D " class="col_3"></td>
+                          <td name="E" class="col_4"></td>
+                          <td name="F" class="col_5"></td>
+                          <td name="G" class="col_6"></td>
+                          <td name="H" class="col_7"></td>
+                          <td name="I" class="col_8"></td>
+                          <td name="J" class="col_9"></td>
+                          <td name="K" class="col_10"></td>
+
+                        </tr>
+                        <tr class="row_4">
+                          <td name="A" class="col_0" contenteditable="true" scope="row"></td>
+                          <td name="B" class="col_1"></td>
+                          <td name="C" class="col_2"></td>
+                          <td name="D " class="col_3"></td>
+                          <td name="E" class="col_4"></td>
+                          <td name="F" class="col_5"></td>
+                          <td name="G" class="col_6"></td>
+                          <td name="H" class="col_7"></td>
+                          <td name="I" class="col_8"></td>
+                          <td name="J" class="col_9"></td>
+                          <td name="K" class="col_10"></td>
+
+                        </tr>
+                        <tr class="row_5">
+                          <td name="A" class="col_0" contenteditable="true" scope="row"></td>
+                          <td name="B" class="col_1"></td>
+                          <td name="C" class="col_2"></td>
+                          <td name="D " class="col_3"></td>
+                          <td name="E" class="col_4"></td>
+                          <td name="F" class="col_5"></td>
+                          <td name="G" class="col_6"></td>
+                          <td name="H" class="col_7"></td>
+                          <td name="I" class="col_8"></td>
+                          <td name="J" class="col_9"></td>
+                          <td name="K" class="col_10"></td>
+
+                        </tr>
+                        <tr class="row_6" value="hello">
+                          <td name="A" class="col_0" contenteditable="true" scope="row"></td>
+                          <td name="B" class="col_1"></td>
+                          <td name="C" class="col_2"></td>
+                          <td name="D " class="col_3"></td>
+                          <td name="E" class="col_4"></td>
+                          <td name="F" class="col_5"></td>
+                          <td name="G" class="col_6"></td>
+                          <td name="H" class="col_7"></td>
+                          <td name="I" class="col_8"></td>
+                          <td name="J" class="col_9"></td>
+                          <td name="K" class="col_10"></td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                    <button class="btn btn-success publish-schedule-button" type="button" name="button" onclick="getTableContent()">Publish</button>
+                    <button class="btn btn-primary" type="button" name="button" onclick="addSchedule()" data-target="#tableControls">New Schedule</button>
+                    <button class="btn btn-danger" type="button" name="deletebutton" data-target="#tableControls" data-slide="prev" onclick="">Delete Schedule</button>
+                    <input type="hidden" name="ArrayDate" class="inputDate" value="">
+                  </form>
+                </div>
+              <% }else{ %>
+              <% existingTables.forEach(function(table){%>
+              <%- table.htmlCode %>
+              <% });%>
+              <% } %>
 
 
 
