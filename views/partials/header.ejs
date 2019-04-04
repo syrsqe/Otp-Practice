@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- <script type="text/javascript src ="src="/getSchedule.js"> -->
+  </head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a href="/home" onclick="href='/home'" class="navbar-brand"> OTP
+      <% if(currentUser) { %>
+        : <%=currentUser.name%>
+            <% } %>
+          </a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ml-auto">
+        <% if(!currentUser) { %>
+
+        <% } else {%>
+
+        <li class="nav-item">
+          <a href="calender" onclick="href='/schedule'" class="nav-link">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a href="calender" onclick="href='/calendar'" class="nav-link">Calendar</a>
+        </li>
+        <li class="nav-item">
+          <a href="arcade" class="nav-link">Arcade</a>
+        </li>
+        <li class="nav-item">
+          <a href="account" onclick="href='/account'" class="nav-link">Account</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="logout" onclick="href='/logout'" class="nav-link">Logout</a>
+        </li>
+        <% } %>
+
+
+      </ul>
+    </div>
+
+  </nav>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>

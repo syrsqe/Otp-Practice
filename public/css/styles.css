@@ -66,3 +66,19 @@
 .hide{
   display: none;
 }
+.login-page{
+  margin-top: 150px;
+}
+.account-page{
+  text-align: center;
+  margin: 100px auto;
+}
+
+.req-off{
+position: static;
+float: right;
+}
+.manager-check-box{
+  width: 15px;
+  height: 15px;
+  margin-bottom: 1.5rem;

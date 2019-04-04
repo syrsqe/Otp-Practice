@@ -4,6 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+const session = require("express-session");
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
 
 const app = express();
 
@@ -11,11 +14,42 @@ let rows = [];
 let existingTables = [];
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({limit: '5mb',extended: true}));
+app.use(bodyParser.urlencoded({limit: '50mb',extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/scheduleDB", {useNewUrlParser: true});
+//pass current logged in user to all routes
 
+
+app.use(session({
+  secret: "Our little secret.",
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+mongoose.connect("mongodb://localhost:27017/scheduleDB", {useNewUrlParser: true});
+mongoose.set("useCreateIndex", true);
+
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  employeeID: String,
+  phone: String
+}); //empty, passport adds username password, and salt
+userSchema.plugin(passportLocalMongoose);
+const User = new mongoose.model("User", userSchema);
+
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req, res, next){
+  res.locals.currentUser = req.user;
+  next();
+});
 const rowSchema = {
   rowNumber: String,
   rowContent: String
@@ -48,7 +82,7 @@ Row = mongoose.model("Row", rowSchema);
 
 app.get("/schedule", function(req, res){
   existingTables = [];
-  console.log(existingTables);
+
   let datesThisWeek = [];
     weekDates.forEach(function(day){
       datesThisWeek.push(day.slice(8));
@@ -79,9 +113,104 @@ app.get("/schedule", function(req, res){
 
 });
 
+app.route("/home")
+.get(isLoggedIn, function(req, res){
 
 
-app.post("/schedule", function(req, res){
+  let datesThisWeek = [];
+  let workingThisWeek = [];
+    weekDates.forEach(function(day){
+      datesThisWeek.push(day.slice(8));
+    });
+  // let weekTableTitle = thisMonthStr + " " + thisYearStr + ": " + datesThisWeek[0] + "-" + datesThisWeek[6] + " ";
+   let weekTableTitle = thisMonthStr + " " + thisYearStr + ": " + "02" + "-" + "08" + " ";
+   console.log(weekTableTitle);
+   Table.findOne({title: weekTableTitle},function(err, foundTable){
+     if(err){
+        console.log(err);
+     }else{
+       console.log(foundTable.title);
+       let tableRows = foundTable.tablerows;
+       for(let i = 1; i < tableRows.length; i++){
+         console.log(tableRows[i].rowContent.slice(0,4));
+
+          User.findOne({employeeID: tableRows[i].rowContent.slice(0,4)}, function(err, foundEmployee){
+            if(err){
+              console.log(err);
+            }else if(foundEmployee != null){
+               workingThisWeek.push(foundEmployee.name);
+            }
+            if(i >= (tableRows.length-1)){
+                   res.render("home", {workingThisWeek: workingThisWeek});
+            }
+          });
+       }
+     }
+
+
+   });
+
+});
+
+app.route("/login")
+.get(function(req, res){
+  res.render("login");
+})
+.post(function(req, res) {
+      const user = new User({
+      username: req.body.username,
+      password: req.body.password
+    });
+    req.login(user, function(err) {
+        if (err) {
+          console.log(err);
+          console.log("error happened in login")
+        } else {
+          passport.authenticate("local")(req, res, function() {
+              res.redirect("/home");
+
+            });
+          }
+        });
+
+
+    });
+
+app.get("/logout", function(req, res){
+  req.logout();
+  res.redirect("/login");
+});
+
+
+app.route("/account")
+.get(isLoggedIn,function(req, res){
+  res.render("account");
+});
+
+app.route("/register")
+.get(function(req, res){
+  res.render("register");
+})
+.post(function(req, res) {
+  User.register({
+      username: req.body.username,
+      name: req.body.firstName + " " + req.body.lastName,
+      employeeID: req.body.employeeID,
+      phone: req.body.phone
+
+  }, req.body.password, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.redirect("/register");
+    } else {
+      passport.authenticate("local")(req, res, function() {
+        res.redirect("/home");
+      });
+    }
+  });
+});
+
+app.post("/schedule", isLoggedIn, function(req, res){
     // console.log(req.body.htmlCode);
     //console.log(req.body.r0);
     let tableTitle = req.body.schedule_title //table identifier
@@ -133,6 +262,25 @@ app.post("/schedule", function(req, res){
 
   res.redirect("/schedule");
 });
+
+app.route("/calendar")
+.get(isLoggedIn, function(req, res){
+  res.render("calendar");
+});
+
+app.route("/arcade")
+.get(isLoggedIn, function(req, res){
+  res.render("arcade");
+});
+
+function isLoggedIn(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  res.redirect("/login");
+}
+
+
 
 
 app.listen(3000, function() {

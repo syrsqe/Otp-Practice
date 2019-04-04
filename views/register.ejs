@@ -1,0 +1,58 @@
+<% include ./partials/header %>
+
+<section id="cover">
+
+    <div id="cover-caption">
+        <div id="container" class="container">
+            <div class="row ">
+                <div class="col-sm-6 offset-sm-3 text-center">
+                    <h1 class="display-4">New Employee</h1>
+                    <div class="info-form">
+                        <form action = "/register" method = "POST" class="form-inlin justify-content-center">
+                            <div class="form-group">
+                                <label class="sr-only">First Name</label>
+                                <input class = "form-control" type = "text" id = "nameInput" name = "firstName" placeholder = "first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Last Name</label>
+                                <input class = "form-control" type = "text" id = "nameInput" name = "lastName" placeholder = "last name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Email</label>
+                                <input class = "form-control" type = "text" id = "emailInput" name = "username" placeholder = "email" >
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">EmployeeID</label>
+                                 <input class = "form-control" type = "text" id = "passwordInput"  name = "employeeID" placeholder = "employee ID" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">password</label>
+                                <input class = "form-control" type = "password" id = "usernameInput" name = "password" placeholder = "password" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Phone Number</label>
+                                <input class = "form-control" type = "text" id = "phoneNoInput" name = "phone" placeholder = "phone number" >
+                            </div>
+                            <div class="form-check manager-check-box">
+                                <input class = "form-check-input" type = "checkbox" id = "managerTxt" name = "manager">
+                                <label class="form-check-label manager-check-box" for="managerTxt">Manager</label>
+                            </div>
+                            <button type="submit" class="btn btn-danger "><i class="fas fa-users"></i> Sign Up </button>
+                        </form>
+                    </div>
+                    <br>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class = "pizza-image">
+
+    </div>
+</section>
+
+
+
+
+<% include ./partials/footer %>

@@ -1,0 +1,131 @@
+<% include ./partials/header %>
+<!--cards-->
+<style>
+  .jumbotron-texture {
+        position: relative;
+        /*background: #000 url("https://images.unsplash.com/photo-1532460734809-e7f8475ca917?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=50d580f73ea6fca23de0f66952622a0f&auto=format&fit=crop&w=2642&q=80") center center;*/
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        color: #fff;
+}
+    </style>
+
+<div class="container-fluid">
+  <div class="jumbotron jumbotron-fluid bg-danger text-white jumbotron-texture" style="text-align: center; margin-top: 30px;">
+    <div class="container">
+      <h1>Old Town Pizza Employee Portal</h1>
+      <a class="text-dark" href="/calendar">Upcoming schedules...</a>
+    </div>
+  </div>
+
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src="https://images.unsplash.com/photo-1523958399470-c15bf82fcea9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=24bc33ab52ef2dc36a177c25c24da122&auto=format&fit=crop&w=1913&q=80" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="/" onclick="href='/calendar'">
+            My Schedule This Week
+          </a>
+        </h4>
+
+        <div class="card-text ">
+          Monday
+            <div class="dropdown d-inline-block req-off">
+              <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%for(let i = 0; i < workingThisWeek.length; i++){%>
+                    <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
+              </div>
+            </div>
+
+        </div><br>
+        <div class="card-text ">
+          Tuesday
+            <div class="dropdown d-inline-block req-off">
+              <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%for(let i = 0; i < workingThisWeek.length; i++){%>
+                    <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
+              </div>
+            </div>
+        </div><br>
+        <div class="card-text ">
+          Wednesday
+            <div class="dropdown d-inline-block req-off">
+              <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%for(let i = 0; i < workingThisWeek.length; i++){%>
+                    <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
+              </div>
+            </div>
+        </div><br>
+        <div class="card-text ">
+          Friday
+            <div class="dropdown d-inline-block req-off">
+              <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%for(let i = 0; i < workingThisWeek.length; i++){%>
+                    <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
+              </div>
+            </div>
+        </div><br>
+        <div class="card-text ">
+          Saturday
+            <div class="dropdown d-inline-block req-off">
+              <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%for(let i = 0; i < workingThisWeek.length; i++){%>
+                    <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
+              </div>
+            </div>
+        </div><br>
+        <div class="card-text ">
+          Sunday
+            <div class="dropdown d-inline-block req-off">
+              <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%for(let i = 0; i < workingThisWeek.length; i++){%>
+                    <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
+              </div>
+            </div>
+        </div><br>
+
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5aaa2a72b49b8dede273d9e35340711c&auto=format&fit=crop&w=1951&q=80" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="/" onclick="href='/announcements'">
+            Announcements
+          </a>
+        </h4>
+        <li>Meeting Saturday December 9th 9:00 AM,, Don't Forget</li>
+        <p class="card-text">beer training opportunity Saturday</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="https://images.unsplash.com/photo-1482398650355-d4c6462afa0e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0863c9e8c3f816262961303e82418fb4&auto=format&fit=crop&w=1950&q=80" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">weekly trivia</h5>
+        <p class="card-text"> In 1866 - 1923, what is now the Velero gas station was the Orleans Hotel, It burned down two times!</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin: 0 auto;">
+    <div class="col-md-6 col-lg-3">
+
+    </div>
+  </div>
+</div>
+<% include ./partials/footer %>
