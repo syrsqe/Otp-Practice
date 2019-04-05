@@ -82,3 +82,9 @@ float: right;
   width: 15px;
   height: 15px;
   margin-bottom: 1.5rem;
+
+}
+.publishAnnouncement-btn{
+  margin: 10px;
+  margin-left: 0;
+}

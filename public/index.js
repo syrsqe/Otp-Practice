@@ -6,16 +6,15 @@ var currentTarget;
 var currentSchedule = document.querySelector(".carousel-item.active")
 var schedules = [];
 if (schedules.length === 0) {
-    let loadedSchedules = document.querySelectorAll(".carousel-item");
-    for(let i = 0; i < loadedSchedules.length; i++){
-        schedules.push(loadedSchedules[i]);
-    }
+  let loadedSchedules = document.querySelectorAll(".carousel-item");
+  for (let i = 0; i < loadedSchedules.length; i++) {
+    schedules.push(loadedSchedules[i]);
+  }
 
 }
 //TODO: refactor RowNames upon row creation and row delection
 
-for (var i = 0; i < tableData.length; i++) {
-
+for (let i = 0; i < tableData.length; i++) {
   tableData[i].contentEditable = "true";
 }
 //add columns
@@ -537,7 +536,7 @@ function addSchedule() {
   schedules.push(newTable);
   addListeners(newTable);
   currentSchedule = schedules[schedules.length - 1];
-  currentSchedule.querySelector(".schedule-title").setAttribute("value",thisMonthStr + " " + year + ": " + datesThisWeek[0] + "-" + datesThisWeek[6]);
+  currentSchedule.querySelector(".schedule-title").setAttribute("value", thisMonthStr + " " + year + ": " + datesThisWeek[0] + "-" + datesThisWeek[6]);
   $("#tableControls").carousel(schedules.length - 1); // only way to use property carousel is in jquery
   console.log(currentSchedule);
 

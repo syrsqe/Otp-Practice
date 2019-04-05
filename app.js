@@ -279,6 +279,9 @@ function isLoggedIn(req, res, next){
   }
   res.redirect("/login");
 }
+app.post("/announcements", isLoggedIn, function(req, res){
+  console.log(req.body.newAnnouncement);
+});
 
 
 
