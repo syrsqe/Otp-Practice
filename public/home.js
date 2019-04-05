@@ -23,6 +23,8 @@ function addAnouncement(){
 function submitAnnoncement(button){
   let newAInput = document.createElement("input");
   newAInput.name = "newAnnouncement"
-  newAInput.value = button.previousSibling.textContent; // get content of
+  newAInput.type = "hidden";
+  newAInput.setAttribute("value",button.previousSibling.textContent); // get content of
+  document.querySelector(".announcement-form").appendChild(newAInput);// setattribute sets both defualt value and value of input = sets only value
   document.querySelector(".announcement-form").submit();
 }

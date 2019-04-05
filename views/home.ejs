@@ -110,8 +110,14 @@
           <li>Meeting Saturday December 9th 9:00 AM,, Don't Forget</li>
           <li contenteditable="true" class="card-text">beer training opportunity Saturday</li>
           <p contenteditable="true" class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          <button type="button" class="btn btn-primary" onclick = "addAnouncement()">Add Announcement</button>
+          <% if(announcements != null){ %>
+            <% announcements.forEach(function(announcement){ %>
+              <li contenteditable="true" class="card-text"><%= announcement.text %></li>
+              <p contenteditable="true" class="card-text"><small class="text-muted">Last updated <%= announcement.date %></small></p>
+            <% }); %>
+          <%}%>
 
+            <button type="button" class="btn btn-primary" onclick = "addAnouncement()">Add Announcement</button>
         </div>
       </form>
 
