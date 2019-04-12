@@ -129,7 +129,7 @@
             <% for(let i = 0; i < announcements.length; i++){ %>
               <li contenteditable="true" class="card-text"><%= announcements[i].text %></li>
               <p contenteditable="true" class="card-text"><small class="text-muted">Last updated <%= announcements[i].date %></small></p>
-              <button type ="button" name="button" class = "btn btn-xs btn-danger deleteAnnouncement-btn" onclick = "deleteAnnouncement(<%=i%>)">Delete</button>
+              <button type ="button" name="button" class = "btn btn-xs btn-danger deleteAnnouncement-btn" onclick = "deleteAnnouncement('<%=announcements[i]._id%>')">Delete</button>
             <% } %>
 
           <%}%>

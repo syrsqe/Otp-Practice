@@ -29,7 +29,7 @@ function submitAnnoncement(button){
   document.querySelector(".announcement-form").submit();
 }
 function deleteAnnouncement(number){
-  console.log("delete announcement called");
+  console.log("delete" + number);
   let newAInput = document.createElement("input");
   newAInput.name = "delAnnouncement"
   newAInput.type = "hidden";

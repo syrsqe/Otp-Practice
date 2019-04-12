@@ -335,19 +335,27 @@ app.post("/announcements", isLoggedIn, function(req, res) {
 app.post("/announcements/delete", function(req, res){
   let announcementNumToDelete = req.body.delAnnouncement;
   console.log(req.body.delAnnouncement);
-  Annoncement.find(function(err, foundAnnouncements){
-    for(let i = 0; i< foundAnnouncements.length; i++){
-      if(i = announcementNumToDelete){
-        foundAnnouncements[i].deleteOne(function(err){
-          if(err){
-            console.log(err);
-          }else{
-            res.redirect("/home");
-          }
-        });
-      }
+  Annoncement.deleteOne({_id: req.body.delAnnouncement}, function(err){
+    if(err){
+      console.log(err);
+    }else{
+      res.redirect("/home");
     }
-  });
+  })
+
+  // Annoncement.find(function(err, foundAnnouncements){
+  //   for(let i = 0; i< foundAnnouncements.length; i++){
+  //     if(i = announcementNumToDelete){
+  //       foundAnnouncements[i].deleteOne(function(err){
+  //         if(err){
+  //           console.log(err);
+  //         }else{
+  //           res.redirect("/home");
+  //         }
+  //       });
+  //     }
+  //   }
+  // });
 });
 
 
