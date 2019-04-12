@@ -154,7 +154,7 @@ app.route("/home")
     }, function(err, foundTable) {
       if (err) {
         console.log(err);
-      } else {
+      } if(foundTable) {
         console.log(foundTable.title);
         let tableRows = foundTable.tablerows;
         for (let i = 1; i < tableRows.length; i++) {
@@ -176,6 +176,8 @@ app.route("/home")
             }
           });
         }
+      }else{
+        res.render("home", {workingThisWeek: null, announcements: announcements});
       }
 
 
@@ -329,6 +331,23 @@ app.post("/announcements", isLoggedIn, function(req, res) {
   newAnnouncement.save();
   res.redirect("/home");
 
+});
+app.post("/announcements/delete", function(req, res){
+  let announcementNumToDelete = req.body.delAnnouncement;
+  console.log(req.body.delAnnouncement);
+  Annoncement.find(function(err, foundAnnouncements){
+    for(let i = 0; i< foundAnnouncements.length; i++){
+      if(i = announcementNumToDelete){
+        foundAnnouncements[i].deleteOne(function(err){
+          if(err){
+            console.log(err);
+          }else{
+            res.redirect("/home");
+          }
+        });
+      }
+    }
+  });
 });
 
 

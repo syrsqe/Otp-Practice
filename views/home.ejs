@@ -34,8 +34,10 @@
             <div class="dropdown d-inline-block req-off">
               <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%if(workingThisWeek != null) {%>
                 <%for(let i = 0; i < workingThisWeek.length; i++){%>
                     <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
                   <%}%>
               </div>
             </div>
@@ -46,8 +48,10 @@
             <div class="dropdown d-inline-block req-off">
               <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%if(workingThisWeek != null) {%>
                 <%for(let i = 0; i < workingThisWeek.length; i++){%>
                     <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
                   <%}%>
               </div>
             </div>
@@ -57,8 +61,10 @@
             <div class="dropdown d-inline-block req-off">
               <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%if(workingThisWeek != null) {%>
                 <%for(let i = 0; i < workingThisWeek.length; i++){%>
                     <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
                   <%}%>
               </div>
             </div>
@@ -68,8 +74,10 @@
             <div class="dropdown d-inline-block req-off">
               <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%if(workingThisWeek != null) {%>
                 <%for(let i = 0; i < workingThisWeek.length; i++){%>
                     <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
                   <%}%>
               </div>
             </div>
@@ -79,8 +87,10 @@
             <div class="dropdown d-inline-block req-off">
               <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%if(workingThisWeek != null) {%>
                 <%for(let i = 0; i < workingThisWeek.length; i++){%>
                     <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
                   <%}%>
               </div>
             </div>
@@ -90,8 +100,10 @@
             <div class="dropdown d-inline-block req-off">
               <button class="btn btn-secondary btn-sm dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request Cover</button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <%if(workingThisWeek != null) {%>
                 <%for(let i = 0; i < workingThisWeek.length; i++){%>
                     <button class="dropdown-item" type="button"><%=workingThisWeek[i]%></button>
+                  <%}%>
                   <%}%>
               </div>
             </div>
@@ -110,17 +122,21 @@
           <li>Meeting Saturday December 9th 9:00 AM,, Don't Forget</li>
           <li contenteditable="true" class="card-text">beer training opportunity Saturday</li>
           <p contenteditable="true" class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          <% if(announcements != null){ %>
-            <% announcements.forEach(function(announcement){ %>
-              <li contenteditable="true" class="card-text"><%= announcement.text %></li>
-              <p contenteditable="true" class="card-text"><small class="text-muted">Last updated <%= announcement.date %></small></p>
-            <% }); %>
-          <%}%>
 
+          <% if(announcements != null){ %>
+
+
+            <% for(let i = 0; i < announcements.length; i++){ %>
+              <li contenteditable="true" class="card-text"><%= announcements[i].text %></li>
+              <p contenteditable="true" class="card-text"><small class="text-muted">Last updated <%= announcements[i].date %></small></p>
+              <button type ="button" name="button" class = "btn btn-xs btn-danger deleteAnnouncement-btn" onclick = "deleteAnnouncement(<%=i%>)">Delete</button>
+            <% } %>
+
+          <%}%>
             <button type="button" class="btn btn-primary" onclick = "addAnouncement()">Add Announcement</button>
         </div>
       </form>
-
+      <form class="delAnnouncement-form" action="/announcements/delete" method="post"></form>
     </div>
     <div class="card">
       <img class="card-img-top" src="https://images.unsplash.com/photo-1482398650355-d4c6462afa0e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0863c9e8c3f816262961303e82418fb4&auto=format&fit=crop&w=1950&q=80" alt="Card image cap">

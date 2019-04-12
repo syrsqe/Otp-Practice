@@ -16,7 +16,7 @@ function addAnouncement(){
   announcementsCard.lastElementChild.before(newAnnouncement);
   announcementsCard.lastElementChild.before(submitButton);
 
-  console.log(newAnnouncement.value);
+  //console.log(newAnnouncement.value);
 
 
 }
@@ -27,4 +27,13 @@ function submitAnnoncement(button){
   newAInput.setAttribute("value",button.previousSibling.textContent); // get content of
   document.querySelector(".announcement-form").appendChild(newAInput);// setattribute sets both defualt value and value of input = sets only value
   document.querySelector(".announcement-form").submit();
+}
+function deleteAnnouncement(number){
+  console.log("delete announcement called");
+  let newAInput = document.createElement("input");
+  newAInput.name = "delAnnouncement"
+  newAInput.type = "hidden";
+  newAInput.setAttribute("value",number);
+  document.querySelector(".delAnnouncement-form").appendChild(newAInput);// setattribute sets both defualt value and value of input = sets only value
+  document.querySelector(".delAnnouncement-form").submit();
 }
